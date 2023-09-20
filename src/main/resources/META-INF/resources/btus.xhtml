@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-us"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Primeiro Projeto</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="BTUs para Ar-Condicionado">
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Digite a área do cômodo (m2):"/>
+                <p:inputText value="#{controllerBtus.area}"/>
+
+                <p:outputLabel value="Digite o número de fontes de calor:"/>
+                <p:inputText value="#{controllerBtus.fontes}"/>
+
+                <p:outputLabel value="Total de BTUs necessários:"/>
+                <p:inputText id="txBtus" readonly="true" value="#{controllerBtus.btus}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="1">
+                <p:commandButton value="Calcular" actionListener="#{controllerBtus.calcularBtus()}" update="txBtus"/>
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-us"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Primeiro Projeto</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Antecessor e sucessor">
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Digite um número:"/>
+                <p:inputText value="#{controllerUpDown.number}"/>
+
+                <p:outputLabel value="Antecessor"/>
+                <p:inputText id="txtPrecessor" readonly="true" value="#{controllerUpDown.getPredecessor()}"/>
+                <p:outputLabel value="Sucessor"/>
+                <p:inputText id="txtSucessor" readonly="true" value="#{controllerUpDown.getSuccessor()}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="1">
+                <p:commandButton value="Gerar" actionListener="#{controllerUpDown.calc(controllerUpDown.getNumber())}" update="txtPrecessor txtSucessor "/>
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
+</h:body>
+
+</html>
